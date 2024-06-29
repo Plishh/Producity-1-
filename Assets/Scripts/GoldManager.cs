@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GoldManager : MonoBehaviour
 {
-  public int Gold {get; set;}
+  public int Gold;
 
  [SerializeField] public GameObject goldBox;
   public TMP_Text goldText;
@@ -24,7 +24,8 @@ public class GoldManager : MonoBehaviour
     }
 
     public void UseGold(int cost) {
-        Gold -= cost;
+        Gold = Gold - cost;
+        Debug.Log("spent money"+ cost + " " + Gold);
     }
 
     public void AddGold(int reward) {

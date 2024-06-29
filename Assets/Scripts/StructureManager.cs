@@ -15,6 +15,8 @@ public class StructureManager : MonoBehaviour
 
     public GoldManager goldManager;
 
+    public InputManager inputManager;
+
     private void Start(){
         houseWeights = housesPrefabs.Select(prefab => prefab.weight).ToArray();    
         specialWeights = specialPrefabs.Select(prefab => prefab.weight).ToArray();
@@ -36,22 +38,23 @@ public class StructureManager : MonoBehaviour
         }
     }*/
 
-    public void PlaceHouse(Vector3Int position , GameObject prefab){
+    public void PlaceHouse(Vector3Int position , GameObject prefab, int houseCost){
         if(CheckPointBeforePlacement(position)){
             //int randomIndex = GetRandomWeightIndex(houseWeights);
-            
+            goldManager.UseGold(houseCost);
+            placementManager.PlaceObjectOnMap(position, prefab, CellType.Structure);
+            AudioPlayer.instance.PlayPlacementSound();
+        }
+        ClearInputActions();
+    }
+
+    public void PlaceSpecial(Vector3Int position, GameObject prefab, int houseCost){
+        if(CheckPointBeforePlacement(position)){
+            goldManager.UseGold(houseCost);
             placementManager.PlaceObjectOnMap(position, prefab, CellType.Structure);
             AudioPlayer.instance.PlayPlacementSound();
         }
     }
-
-    // public void PlaceSpecial(Vector3Int position){
-    //     if(CheckPointBeforePlacement(position)){
-    //         int randomIndex = GetRandomWeightIndex(specialWeights);
-    //         placementManager.PlaceObjectOnMap(position, specialPrefabs[randomIndex].prefab, CellType.Structure);
-    //         AudioPlayer.instance.PlayPlacementSound();
-    //     }
-    // }
 
     private int GetRandomWeightIndex(float[] weights)
     {
@@ -87,6 +90,13 @@ public class StructureManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void ClearInputActions()
+    {
+        inputManager.OnMouseClick = null;
+        inputManager.OnMouseHold = null;
+        inputManager.OnMouseUp = null;
     }
 }
 
