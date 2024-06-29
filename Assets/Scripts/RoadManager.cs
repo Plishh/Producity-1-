@@ -27,6 +27,8 @@ public class RoadManager : MonoBehaviour
 
      public void PlaceRoad(Vector3Int position){
 
+        Debug.Log("placeroad code in roadmanager");
+
         if(placementManager.CheckIfPositionInBound(position) == false){
             return;
         }

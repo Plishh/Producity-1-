@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public UIController uIController;
 
     public StructureManager structureManager;
+    public GameObject buildHouseMenu, buildSpecialMenu;
 
     public void Start(){
         uIController.OnRoadPlacement += roadPlacementHandler;
@@ -26,17 +27,20 @@ public class GameManager : MonoBehaviour
     private void SpecialPlacementHandler()
     {
         ClearInputActions();
-        inputManager.OnMouseClick += structureManager.PlaceSpecial;
+        buildSpecialMenu.SetActive(true);
+        //inputManager.OnMouseClick += structureManager.PlaceSpecial;
     }
 
     private void HousePlacementHandler()
     {
         ClearInputActions();
-        inputManager.OnMouseClick += structureManager.PlaceHouse;
+        buildHouseMenu.SetActive(true);
+        //inputManager.OnMouseClick += structureManager.PlaceHouse;
     }
 
     private void roadPlacementHandler()
     {
+        Debug.Log("place road");
         ClearInputActions();
         inputManager.OnMouseClick += roadManager.PlaceRoad;
         inputManager.OnMouseHold += roadManager.PlaceRoad; 

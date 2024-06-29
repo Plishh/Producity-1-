@@ -13,15 +13,33 @@ public class StructureManager : MonoBehaviour
 
     private float[] houseWeights, specialWeights;
 
+    public GoldManager goldManager;
+
     private void Start(){
         houseWeights = housesPrefabs.Select(prefab => prefab.weight).ToArray();    
         specialWeights = specialPrefabs.Select(prefab => prefab.weight).ToArray();
     }
 
-    public void PlaceHouse(Vector3Int position){
+   /*public void PlaceHouse(Vector3Int position){
         if(CheckPointBeforePlacement(position)){
             int randomIndex = GetRandomWeightIndex(houseWeights);
             placementManager.PlaceObjectOnMap(position, housesPrefabs[randomIndex].prefab, CellType.Structure);
+            AudioPlayer.instance.PlayPlacementSound();
+        }
+    }
+
+    public void PlaceSpecial(Vector3Int position){
+        if(CheckPointBeforePlacement(position)){
+            int randomIndex = GetRandomWeightIndex(specialWeights);
+            placementManager.PlaceObjectOnMap(position, specialPrefabs[randomIndex].prefab, CellType.Structure);
+            AudioPlayer.instance.PlayPlacementSound();
+        }
+    }*/
+
+    public void PlaceHouse(Vector3Int position , GameObject prefab){
+        if(CheckPointBeforePlacement(position)){
+            //int randomIndex = GetRandomWeightIndex(houseWeights);
+            placementManager.PlaceObjectOnMap(position, prefab, CellType.Structure);
             AudioPlayer.instance.PlayPlacementSound();
         }
     }

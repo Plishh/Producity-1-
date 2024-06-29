@@ -11,7 +11,10 @@ public class UIController : MonoBehaviour
     public Color outlineColor;
     List<Button> buttonList;
 
+    
+
     private void Start(){
+
         buttonList = new List<Button> { placeHouseButton, placeRoadButton, placeSpecialButton };
 
         placeRoadButton.onClick.AddListener(() =>
@@ -23,8 +26,10 @@ public class UIController : MonoBehaviour
         });
         placeHouseButton.onClick.AddListener(() =>
         {
+
             ResetButtonColor();
             ModifyOutline(placeHouseButton);
+            //buildHouseMenu.SetActive(true);
             OnHousePlacement?.Invoke();
 
         });
@@ -32,6 +37,7 @@ public class UIController : MonoBehaviour
         {
             ResetButtonColor();
             ModifyOutline(placeSpecialButton);
+            //buildSpecialMenu.SetActive(true);
             OnSpecialPlacement?.Invoke();
 
         });
@@ -51,3 +57,4 @@ public class UIController : MonoBehaviour
         }
     }
 }
+
