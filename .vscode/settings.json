@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Producity.sln"
+    "dotnet.defaultSolution": "Producity-1-.sln"
 }
