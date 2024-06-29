@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void HousePlacementHandler()
     {
         ClearInputActions();
+        
         buildHouseMenu.SetActive(true);
         //inputManager.OnMouseClick += structureManager.PlaceHouse;
     }
