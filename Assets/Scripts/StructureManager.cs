@@ -11,7 +11,7 @@ public class StructureManager : MonoBehaviour
     public StructurePrefabWeighted[] housesPrefabs, specialPrefabs;
     public PlacementManager placementManager;
 
-    private float[] houseWeights, specialWeights;
+    private int[] houseWeights, specialWeights;
 
     public GoldManager goldManager;
 
@@ -39,18 +39,19 @@ public class StructureManager : MonoBehaviour
     public void PlaceHouse(Vector3Int position , GameObject prefab){
         if(CheckPointBeforePlacement(position)){
             //int randomIndex = GetRandomWeightIndex(houseWeights);
+            
             placementManager.PlaceObjectOnMap(position, prefab, CellType.Structure);
             AudioPlayer.instance.PlayPlacementSound();
         }
     }
 
-    public void PlaceSpecial(Vector3Int position){
-        if(CheckPointBeforePlacement(position)){
-            int randomIndex = GetRandomWeightIndex(specialWeights);
-            placementManager.PlaceObjectOnMap(position, specialPrefabs[randomIndex].prefab, CellType.Structure);
-            AudioPlayer.instance.PlayPlacementSound();
-        }
-    }
+    // public void PlaceSpecial(Vector3Int position){
+    //     if(CheckPointBeforePlacement(position)){
+    //         int randomIndex = GetRandomWeightIndex(specialWeights);
+    //         placementManager.PlaceObjectOnMap(position, specialPrefabs[randomIndex].prefab, CellType.Structure);
+    //         AudioPlayer.instance.PlayPlacementSound();
+    //     }
+    // }
 
     private int GetRandomWeightIndex(float[] weights)
     {
@@ -93,6 +94,6 @@ public class StructureManager : MonoBehaviour
 
 public struct StructurePrefabWeighted{
     public GameObject prefab;
-    [Range(1,0)]
-    public float weight;
+    //[Range(1,0)]
+    public int weight;
 }

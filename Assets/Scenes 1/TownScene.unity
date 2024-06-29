@@ -472,7 +472,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32433563}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24d622a01bf86483097a9a3fde8ec622, type: 3}
   m_Name: 
@@ -483,19 +483,23 @@ MonoBehaviour:
     weight: 0
   - prefab: {fileID: 801535651834448878, guid: 3240703552f47d04d9bf7207ca5bfa85, type: 3}
     weight: 0
-  - prefab: {fileID: 0}
+  - prefab: {fileID: 8067785501733222628, guid: 4617fd335db984f4bb34f5eb561fd82b,
+      type: 3}
     weight: 0
-  - prefab: {fileID: 0}
+  - prefab: {fileID: 7864668269691680764, guid: 44c75b500bfebf84993deb17f38a98f6,
+      type: 3}
     weight: 0
-  - prefab: {fileID: 0}
+  - prefab: {fileID: 8172496117335426106, guid: 3527735cc30c8554aadd1222f91bf61f,
+      type: 3}
     weight: 0
   inputManager: {fileID: 796570466}
   structureManager: {fileID: 330353633}
   house1: {fileID: 69195116}
-  house2: {fileID: 0}
-  house3: {fileID: 0}
-  house4: {fileID: 0}
-  house5: {fileID: 0}
+  house2: {fileID: 123628854}
+  house3: {fileID: 373275658}
+  house4: {fileID: 1824706718}
+  house5: {fileID: 984022667}
+  goldManager: {fileID: 98947982}
 --- !u!1001 &36899997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -986,7 +990,7 @@ GameObject:
   - component: {fileID: 69195116}
   - component: {fileID: 69195115}
   m_Layer: 5
-  m_Name: Button (0)
+  m_Name: ButtonHouse1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1010,7 +1014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80.00001, y: -224.4898}
+  m_AnchoredPosition: {x: 80.00001, y: -224.7557}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &69195115
@@ -1714,7 +1718,7 @@ GameObject:
   - component: {fileID: 123628854}
   - component: {fileID: 123628853}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: ButtonHouse2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1738,7 +1742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240.00003, y: -224.4898}
+  m_AnchoredPosition: {x: 240.00003, y: -224.7557}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &123628853
@@ -4117,25 +4121,25 @@ MonoBehaviour:
   housesPrefabs:
   - prefab: {fileID: 2769822920355022703, guid: 7102e40a9ba863a44838c4fd828cc22b,
       type: 3}
-    weight: 0.25
+    weight: 0
   - prefab: {fileID: 801535651834448878, guid: 3240703552f47d04d9bf7207ca5bfa85, type: 3}
-    weight: 0.25
+    weight: 0
   - prefab: {fileID: 8067785501733222628, guid: 4617fd335db984f4bb34f5eb561fd82b,
       type: 3}
-    weight: 0.25
+    weight: 0
   - prefab: {fileID: 7864668269691680764, guid: 44c75b500bfebf84993deb17f38a98f6,
       type: 3}
-    weight: 1
+    weight: 0
   - prefab: {fileID: 8172496117335426106, guid: 3527735cc30c8554aadd1222f91bf61f,
       type: 3}
-    weight: 1
+    weight: 0
   specialPrefabs:
   - prefab: {fileID: 3702253504043930072, guid: 838f9b485bb510747a4b89e3cb91e1bd,
       type: 3}
-    weight: 1
+    weight: 0
   - prefab: {fileID: 8028572972740798329, guid: b4e018779a1b9aa44b2a988c6d8ddfda,
       type: 3}
-    weight: 1
+    weight: 0
   placementManager: {fileID: 1014565595}
   goldManager: {fileID: 0}
 --- !u!4 &330353634
@@ -5010,7 +5014,7 @@ GameObject:
   - component: {fileID: 373275658}
   - component: {fileID: 373275657}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: ButtonHouse3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5034,7 +5038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400.00003, y: -224.4898}
+  m_AnchoredPosition: {x: 400.00003, y: -224.7557}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373275657
@@ -10323,7 +10327,7 @@ MonoBehaviour:
   mainCamera: {fileID: 2044889011}
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   cameraMovementVector: {x: 0, y: 0}
 --- !u!4 &796570467
 Transform:
@@ -13615,7 +13619,7 @@ GameObject:
   - component: {fileID: 984022667}
   - component: {fileID: 984022666}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: ButtonHouse5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13639,7 +13643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 720.0001, y: -224.4898}
+  m_AnchoredPosition: {x: 720.0001, y: -224.7557}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984022666
@@ -25597,6 +25601,8 @@ MonoBehaviour:
   roadManager: {fileID: 2008298917}
   uIController: {fileID: 681313534}
   structureManager: {fileID: 330353633}
+  buildHouseMenu: {fileID: 32433563}
+  buildSpecialMenu: {fileID: 1430847002}
 --- !u!4 &1737209025
 Transform:
   m_ObjectHideFlags: 0
@@ -27188,7 +27194,7 @@ GameObject:
   - component: {fileID: 1824706718}
   - component: {fileID: 1824706717}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: ButtonHouse4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27212,7 +27218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 560.00006, y: -224.4898}
+  m_AnchoredPosition: {x: 560.00006, y: -224.7557}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1824706717
@@ -27691,7 +27697,7 @@ GameObject:
   - component: {fileID: 1863138668}
   - component: {fileID: 1863138667}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28155,7 +28161,7 @@ GameObject:
   - component: {fileID: 1874873550}
   - component: {fileID: 1874873549}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: HouseMenuPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
