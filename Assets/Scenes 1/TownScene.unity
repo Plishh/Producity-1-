@@ -480,18 +480,18 @@ MonoBehaviour:
   housesPrefabs:
   - prefab: {fileID: 2769822920355022703, guid: 7102e40a9ba863a44838c4fd828cc22b,
       type: 3}
-    weight: 0
+    weight: 50
   - prefab: {fileID: 801535651834448878, guid: 3240703552f47d04d9bf7207ca5bfa85, type: 3}
-    weight: 0
+    weight: 100
   - prefab: {fileID: 8067785501733222628, guid: 4617fd335db984f4bb34f5eb561fd82b,
       type: 3}
-    weight: 0
+    weight: 150
   - prefab: {fileID: 7864668269691680764, guid: 44c75b500bfebf84993deb17f38a98f6,
       type: 3}
-    weight: 0
+    weight: 200
   - prefab: {fileID: 8172496117335426106, guid: 3527735cc30c8554aadd1222f91bf61f,
       type: 3}
-    weight: 0
+    weight: 250
   inputManager: {fileID: 796570466}
   structureManager: {fileID: 330353633}
   house1: {fileID: 69195116}
@@ -499,6 +499,7 @@ MonoBehaviour:
   house3: {fileID: 373275658}
   house4: {fileID: 1824706718}
   house5: {fileID: 984022667}
+  close: {fileID: 1863138667}
   goldManager: {fileID: 98947982}
 --- !u!1001 &36899997
 PrefabInstance:
@@ -1014,7 +1015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80.00001, y: -224.7557}
+  m_AnchoredPosition: {x: 80.00001, y: -225.22757}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &69195115
@@ -1380,6 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7ce4d9506844352b136a66c07e1519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gold: 100
   goldBox: {fileID: 962827830}
   goldText: {fileID: 1173118721}
 --- !u!114 &98947983
@@ -1742,7 +1744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240.00003, y: -224.7557}
+  m_AnchoredPosition: {x: 240.00003, y: -225.22757}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &123628853
@@ -4141,7 +4143,8 @@ MonoBehaviour:
       type: 3}
     weight: 0
   placementManager: {fileID: 1014565595}
-  goldManager: {fileID: 0}
+  goldManager: {fileID: 98947982}
+  inputManager: {fileID: 796570466}
 --- !u!4 &330353634
 Transform:
   m_ObjectHideFlags: 0
@@ -5038,7 +5041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400.00003, y: -224.7557}
+  m_AnchoredPosition: {x: 400.00003, y: -225.22757}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373275657
@@ -8891,7 +8894,7 @@ GameObject:
   - component: {fileID: 681313530}
   - component: {fileID: 681313534}
   m_Layer: 5
-  m_Name: CanvasBuild
+  m_Name: CanvasMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9714,7 +9717,7 @@ GameObject:
   - component: {fileID: 759369258}
   - component: {fileID: 759369261}
   m_Layer: 5
-  m_Name: Button (0)
+  m_Name: ButtonSpecialShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9738,7 +9741,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200.00002, y: -224.4898}
+  m_AnchoredPosition: {x: 200.00002, y: -225.22757}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &759369258
@@ -13643,7 +13646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 720.0001, y: -224.7557}
+  m_AnchoredPosition: {x: 720.0001, y: -225.22757}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984022666
@@ -16763,7 +16766,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -17831,7 +17834,7 @@ GameObject:
   - component: {fileID: 1262957742}
   - component: {fileID: 1262957741}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: ButtonSpecialBank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17855,7 +17858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 600, y: -224.4898}
+  m_AnchoredPosition: {x: 600, y: -225.22757}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262957741
@@ -20125,6 +20128,7 @@ GameObject:
   - component: {fileID: 1430847005}
   - component: {fileID: 1430847004}
   - component: {fileID: 1430847003}
+  - component: {fileID: 1430847007}
   m_Layer: 5
   m_Name: CanvasSpecialMenu (1)
   m_TagString: Untagged
@@ -20216,6 +20220,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1430847007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430847002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a011256725ed44c592dde9984ab3408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialPrefabs:
+  - prefab: {fileID: 3702253504043930072, guid: 838f9b485bb510747a4b89e3cb91e1bd,
+      type: 3}
+    weight: 200
+  - prefab: {fileID: 8028572972740798329, guid: b4e018779a1b9aa44b2a988c6d8ddfda,
+      type: 3}
+    weight: 300
+  inputManager: {fileID: 796570466}
+  structureManager: {fileID: 330353633}
+  house1: {fileID: 759369258}
+  house2: {fileID: 1262957742}
+  close: {fileID: 1718230043}
+  goldManager: {fileID: 98947982}
 --- !u!1001 &1438391666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25087,7 +25116,7 @@ GameObject:
   - component: {fileID: 1718230044}
   - component: {fileID: 1718230043}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27218,7 +27247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 560.00006, y: -224.7557}
+  m_AnchoredPosition: {x: 560.00006, y: -225.22757}
   m_SizeDelta: {x: 110.164, y: 171.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1824706717
