@@ -39,8 +39,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 280.33, y: 33.743805}
+  m_AnchoredPosition: {x: -8440, y: -4740}
+  m_SizeDelta: {x: 280.33008, y: 33.743652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &993377682949205522
 CanvasRenderer:
@@ -120,7 +120,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskTextPlace: {fileID: 5169168970604441690}
   taskTimePlace: {fileID: 3484683162741796771}
-  completed: {fileID: 0}
+  taskText: {fileID: 2031858145403966931}
+  completed: {fileID: 1807303072827639224}
+  tick: {fileID: 7890613780059703339}
+  taskManager: {fileID: 0}
+  goldManager: {fileID: 0}
 --- !u!1 &3484683162741796771
 GameObject:
   m_ObjectHideFlags: 0
