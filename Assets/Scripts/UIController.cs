@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     public Action OnRoadPlacement, OnHousePlacement, OnSpecialPlacement;
-    public Button placeRoadButton, placeHouseButton, placeSpecialButton;
+    public Button placeRoadButton, placeHouseButton, placeSpecialButton, todoButton;
     public Color outlineColor;
     List<Button> buttonList;
+
+    public GameObject todoMenu;
 
     
 
@@ -41,6 +43,12 @@ public class UIController : MonoBehaviour
             OnSpecialPlacement?.Invoke();
 
         });
+
+        todoButton.onClick.AddListener(() =>
+        {
+            todoMenu.SetActive(true);
+        }
+        );
     }
 
     private void ModifyOutline(Button button)
