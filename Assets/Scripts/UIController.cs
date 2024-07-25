@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public Action OnRoadPlacement, OnHousePlacement, OnSpecialPlacement;
-    public Button placeRoadButton, placeHouseButton, placeSpecialButton, todoButton;
+    public Action OnRoadPlacement, OnHousePlacement, OnSpecialPlacement, OnStructureDestroy;
+    public Button placeRoadButton, placeHouseButton, placeSpecialButton, todoButton, deleteButton;
     public Color outlineColor;
     List<Button> buttonList;
 
@@ -43,6 +43,14 @@ public class UIController : MonoBehaviour
             OnSpecialPlacement?.Invoke();
 
         });
+
+        deleteButton.onClick.AddListener(() =>
+            {
+                ResetButtonColor();
+                ModifyOutline(deleteButton);
+                OnStructureDestroy?.Invoke();
+            }
+        );
 
         todoButton.onClick.AddListener(() =>
         {

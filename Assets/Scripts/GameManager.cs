@@ -16,10 +16,13 @@ public class GameManager : MonoBehaviour
     public StructureManager structureManager;
     public GameObject buildHouseMenu, buildSpecialMenu;
 
+    public PlacementManager placementManager;
+
     public void Start(){
         uIController.OnRoadPlacement += roadPlacementHandler;
         uIController.OnHousePlacement += HousePlacementHandler;
         uIController.OnSpecialPlacement += SpecialPlacementHandler;
+        uIController.OnStructureDestroy += DeleteStructureHandler;
        
         //Debug.Log("working");
     }
@@ -39,9 +42,16 @@ public class GameManager : MonoBehaviour
         //inputManager.OnMouseClick += structureManager.PlaceHouse;
     }
 
+    private void DeleteStructureHandler()
+    {
+         Debug.Log("Destroy");
+        ClearInputActions();
+        inputManager.OnMouseClick += placementManager.DestroyStructure;
+    }
+
     private void roadPlacementHandler()
     {
-        Debug.Log("place road");
+       
         ClearInputActions();
         inputManager.OnMouseClick += roadManager.PlaceRoad;
         inputManager.OnMouseHold += roadManager.PlaceRoad; 

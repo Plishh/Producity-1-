@@ -109,6 +109,7 @@ public class PlacementManager : MonoBehaviour
 
     internal void PlaceObjectOnMap(Vector3Int position, GameObject structurePrefab, CellType type)
     {
+        Debug.Log(position.ToString());
         placementGrid[position.x, position.z] = type;
         StructureModel structure = CreateANewStructure(position, structurePrefab, type); 
         structureDictionary.Add(position,  structure);
@@ -123,5 +124,13 @@ public class PlacementManager : MonoBehaviour
             //raycast hit is a gameobject with collider as boxcast get all gameobject with a collider this can access the gameobject back to destroy it
             Destroy(hit.collider.gameObject);
          }
+    }
+
+    public void DestroyStructure(Vector3Int position){
+        //StructureModel Destroyed but structure still there
+        StructureModel structure = structureDictionary[position];
+        structureDictionary.Remove(position);
+        structure.DestroyStructure();
+        placementGrid[position.x, position.z] = CellType.Empty;
     }
 }

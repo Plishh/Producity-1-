@@ -17,9 +17,12 @@ public class StructureManager : MonoBehaviour
 
     public InputManager inputManager;
 
+    public ArrayList buildingList;
+
     private void Start(){
         houseWeights = housesPrefabs.Select(prefab => prefab.weight).ToArray();    
         specialWeights = specialPrefabs.Select(prefab => prefab.weight).ToArray();
+        buildingList = new ArrayList();
     }
 
    /*public void PlaceHouse(Vector3Int position){
@@ -44,6 +47,7 @@ public class StructureManager : MonoBehaviour
             goldManager.UseGold(houseCost);
             placementManager.PlaceObjectOnMap(position, prefab, CellType.Structure);
             AudioPlayer.instance.PlayPlacementSound();
+            //buildingList.Add(position);
         }
         ClearInputActions();
     }
@@ -55,6 +59,8 @@ public class StructureManager : MonoBehaviour
             AudioPlayer.instance.PlayPlacementSound();
         }
     }
+
+    
 
     private int GetRandomWeightIndex(float[] weights)
     {
