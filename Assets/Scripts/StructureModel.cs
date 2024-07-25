@@ -20,4 +20,8 @@ public class StructureModel : MonoBehaviour
         structure.transform.localPosition =  new Vector3(0, yHeight, 0);
         structure.transform.localRotation = rotation;
     }
+
+    public void DestroyStructure(){
+        Destroy(gameObject);
+    }
 }

@@ -20,13 +20,7 @@ public class HouseMenuHandler : MonoBehaviour
     {
         house1.onClick.AddListener(() =>
             {
-                int houseCost = housesPrefabs[0].weight;
-                
-                if (goldManager.Gold >= houseCost)
-                {
-                    gameObject.SetActive(false);
-                    inputManager.OnMouseClick += pos => structureManager.PlaceHouse(pos, housesPrefabs[0].prefab, houseCost);
-                }
+                BuildHouse(1);
             }
 
         );
@@ -100,5 +94,16 @@ public class HouseMenuHandler : MonoBehaviour
         inputManager.OnMouseUp = null;
     }
 
+    private void BuildHouse(int x){
+        
+                int houseCost = housesPrefabs[x-1].weight;
+                
+                if (goldManager.Gold >= houseCost)
+                {
+                    gameObject.SetActive(false);
+                    inputManager.OnMouseClick += pos => structureManager.PlaceHouse(pos, housesPrefabs[x-1].prefab, houseCost);
+                }
+            
+    }
 
 }
