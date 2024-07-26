@@ -39,7 +39,7 @@ public class TaskManager : MonoBehaviour
         
     }
 
-    private void HideTodo()
+    public void HideTodo()
     {
         CanvasGroup todoMenu = GetComponent<CanvasGroup>();
         todoMenu.alpha = 0;
@@ -67,7 +67,13 @@ public class TaskManager : MonoBehaviour
         
     }
 
-
+    internal void ShowTodo()
+    {
+        CanvasGroup todoMenu = GetComponent<CanvasGroup>();
+        todoMenu.alpha = 1;
+        todoMenu.interactable = true;
+        todoMenu.blocksRaycasts = true;
+    }
 }
 
 
