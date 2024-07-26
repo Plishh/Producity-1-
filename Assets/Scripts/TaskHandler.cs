@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class TaskHandler : MonoBehaviour
 {
-    //private bool isDone;
+    private bool isDone;
     private String taskStr;
 
     public GameObject taskTextPlace;
@@ -26,6 +26,8 @@ public class TaskHandler : MonoBehaviour
 
     private DateTime alarmTime;
 
+    public EventsManager eventsManager;
+
     
 
     private void Start() {
@@ -40,6 +42,8 @@ public class TaskHandler : MonoBehaviour
         {
             deadline.onEndEdit.AddListener(OnTimeInputEnd);
         }
+        GameObject eventsManagerObject = GameObject.FindGameObjectWithTag("EventsManager"); 
+        eventsManager = eventsManagerObject.GetComponent<EventsManager>();
     }
 
      void OnTimeInputEnd(string input)
@@ -64,6 +68,7 @@ public class TaskHandler : MonoBehaviour
                     alarmTime = alarmTime.AddDays(1);
                 }
                 StartCoroutine(AlarmCoroutine(alarmTime));
+                
 
             }
             else
@@ -82,7 +87,9 @@ public class TaskHandler : MonoBehaviour
 
  IEnumerator AlarmCoroutine(DateTime targetTime)
     {
-        Debug.Log(DateTime.Now);
+        Debug.Log("Current Time: " + DateTime.Now);
+Debug.Log("Target Time: " + targetTime);
+        
         while (DateTime.Now < targetTime.AddHours(-2))
         {
             yield return null; // Wait until the next frame
@@ -97,22 +104,32 @@ public class TaskHandler : MonoBehaviour
             yield return null; // Wait until the next frame
 
         }
+        Debug.Log("less than an hour");
+
+        while (DateTime.Now < targetTime )
+        {
+            
+            yield return null;
+        }
+        Debug.Log("times up");
+            feedbackText.text = "time is up";
+            eventsManager.SetFire();
         
         //
     }
 
     public void setIsDone(){
-        //this.isDone = true;
+        this.isDone = true;
         goldManager.AddGold(50);
         
         tick.SetActive(true);
         taskManager.CheckTask(this);
         feedbackText.text = "";
-
     }
 
     public void setTaskInfo(string task)
     {
+
         taskText.text = task;
     }
 
