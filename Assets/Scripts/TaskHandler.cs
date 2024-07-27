@@ -151,10 +151,11 @@ public class TaskHandler : MonoBehaviour
         //add back buildings that were supposed to be burned if the task is not yet expired
         if(isExpired == false){
         structureManager.addToBuildingList(toBurn);
-        } 
+        
 
         foreach(Vector3Int pos in toBurn){
             placementManager.DestroyFire(pos);
+        }
         }
         }
     }
