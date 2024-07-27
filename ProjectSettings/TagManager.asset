@@ -6,6 +6,9 @@ TagManager:
   tags:
   - GoldManager
   - TaskManager
+  - EventsManager
+  - StructureManager
+  - PlacementManager
   layers:
   - Default
   - TransparentFX

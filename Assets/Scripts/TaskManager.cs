@@ -28,7 +28,8 @@ public class TaskManager : MonoBehaviour
     {
         close.onClick.AddListener(() =>
             {
-                gameObject.SetActive(false);
+                HideTodo();
+                //gameObject.SetActive(false);
                 //ClearInputActions();
             }
         );
@@ -36,6 +37,14 @@ public class TaskManager : MonoBehaviour
         inputField.onEndEdit.AddListener(MakeNewTaskBox);
 
         
+    }
+
+    public void HideTodo()
+    {
+        CanvasGroup todoMenu = GetComponent<CanvasGroup>();
+        todoMenu.alpha = 0;
+        todoMenu.interactable = false;
+        todoMenu.blocksRaycasts = false;
     }
 
     private void MakeNewTaskBox(String task)
@@ -58,7 +67,13 @@ public class TaskManager : MonoBehaviour
         
     }
 
-
+    internal void ShowTodo()
+    {
+        CanvasGroup todoMenu = GetComponent<CanvasGroup>();
+        todoMenu.alpha = 1;
+        todoMenu.interactable = true;
+        todoMenu.blocksRaycasts = true;
+    }
 }
 
 

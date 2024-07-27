@@ -13,9 +13,14 @@ public class UIController : MonoBehaviour
 
     public GameObject todoMenu;
 
-    
+    public TaskManager taskManager;
+
+
 
     private void Start(){
+
+        todoMenu.SetActive(true);
+        taskManager.HideTodo();
 
         buttonList = new List<Button> { placeHouseButton, placeRoadButton, placeSpecialButton };
 
@@ -54,7 +59,7 @@ public class UIController : MonoBehaviour
 
         todoButton.onClick.AddListener(() =>
         {
-            todoMenu.SetActive(true);
+            taskManager.ShowTodo();
         }
         );
     }

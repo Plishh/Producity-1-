@@ -17,7 +17,7 @@ public class StructureManager : MonoBehaviour
 
     public InputManager inputManager;
 
-    public ArrayList buildingList;
+    private ArrayList buildingList;
 
     private void Start(){
         houseWeights = housesPrefabs.Select(prefab => prefab.weight).ToArray();    
@@ -47,7 +47,7 @@ public class StructureManager : MonoBehaviour
             goldManager.UseGold(houseCost);
             placementManager.PlaceObjectOnMap(position, prefab, CellType.Structure);
             AudioPlayer.instance.PlayPlacementSound();
-            //buildingList.Add(position);
+            buildingList.Add(position);
         }
         ClearInputActions();
     }
@@ -103,6 +103,20 @@ public class StructureManager : MonoBehaviour
         inputManager.OnMouseClick = null;
         inputManager.OnMouseHold = null;
         inputManager.OnMouseUp = null;
+    }
+
+    public ArrayList GetBuildingList() {
+        return buildingList;
+    }
+
+    public void addToBuildingList(ArrayList toBurn)
+    {
+        if(toBurn == null){
+            return;
+        }
+        foreach(var building in toBurn){
+            buildingList.Add(building);
+        }
     }
 }
 

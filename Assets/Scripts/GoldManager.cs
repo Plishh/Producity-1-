@@ -12,7 +12,7 @@ public class GoldManager : MonoBehaviour
   public TMP_Text goldText;
 
     private void Start() {
-        Gold = 100;
+        Gold = 500;
         
         //sgoldText = GetComponent<TMP_Text>();
         
