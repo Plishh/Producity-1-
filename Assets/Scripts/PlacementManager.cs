@@ -11,7 +11,9 @@ public class PlacementManager : MonoBehaviour
     Grid placementGrid;
 
     private Dictionary<Vector3Int, StructureModel> temporaryRoadObjects = new Dictionary<Vector3Int, StructureModel>();
-    private Dictionary<Vector3Int, StructureModel> structureDictionary = new Dictionary<Vector3Int,StructureModel>();   
+    private Dictionary<Vector3Int, StructureModel> structureDictionary = new Dictionary<Vector3Int,StructureModel>();
+    private Dictionary<Vector3Int, StructureModel> fireDictionary = new Dictionary<Vector3Int, StructureModel>();
+
     void Start()
     {
      placementGrid = new Grid(width, height );
@@ -132,5 +134,24 @@ public class PlacementManager : MonoBehaviour
         structureDictionary.Remove(position);
         structure.DestroyStructure();
         placementGrid[position.x, position.z] = CellType.Empty;
+    }
+
+    public void PlaceFire(Vector3Int position, GameObject structurePrefab, String name)
+    {
+        GameObject fire = new GameObject(name);
+        
+        fire.transform.SetParent(transform);
+        fire.transform.localPosition = position;
+        var StructureModel = fire.AddComponent<StructureModel>();
+        StructureModel.CreatModel(structurePrefab);
+        fireDictionary.Add(position, StructureModel);
+        
+    }
+
+    public void DestroyFire(Vector3Int pos){
+        
+        StructureModel fire = fireDictionary[pos];
+        fireDictionary.Remove(pos);
+        fire.DestroyStructure();
     }
 }

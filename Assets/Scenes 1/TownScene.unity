@@ -4255,7 +4255,7 @@ GameObject:
   - component: {fileID: 330353633}
   m_Layer: 0
   m_Name: StructureManager
-  m_TagString: Untagged
+  m_TagString: StructureManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5168,6 +5168,7 @@ GameObject:
   - component: {fileID: 360752709}
   - component: {fileID: 360752708}
   - component: {fileID: 360752712}
+  - component: {fileID: 360752713}
   m_Layer: 5
   m_Name: CanvasTasks
   m_TagString: TaskManager
@@ -5277,6 +5278,18 @@ MonoBehaviour:
   inputField: {fileID: 1958117622}
   close: {fileID: 42410543}
   goldManager: {fileID: 98947982}
+--- !u!225 &360752713
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360752707}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &373275655
 GameObject:
   m_ObjectHideFlags: 0
@@ -7024,6 +7037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab4d95ce16ed4a7cb0304e89ce1bd3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firePrefab: {fileID: 9103264963157438212, guid: 2f275d04af6d74624acf671ddb15bb99,
+    type: 3}
   structureManager: {fileID: 330353633}
   placementManager: {fileID: 1014565595}
 --- !u!4 &512873934
@@ -9450,6 +9465,7 @@ MonoBehaviour:
   deleteButton: {fileID: 1545480734}
   outlineColor: {r: 0.7264151, g: 0.28348747, b: 0.14733891, a: 0.94509804}
   todoMenu: {fileID: 360752707}
+  taskManager: {fileID: 360752712}
 --- !u!1001 &695513889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14970,7 +14986,7 @@ GameObject:
   - component: {fileID: 1014565595}
   m_Layer: 0
   m_Name: PlacementManager
-  m_TagString: Untagged
+  m_TagString: PlacementManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

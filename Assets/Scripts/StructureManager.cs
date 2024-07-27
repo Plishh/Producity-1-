@@ -108,6 +108,16 @@ public class StructureManager : MonoBehaviour
     public ArrayList GetBuildingList() {
         return buildingList;
     }
+
+    public void addToBuildingList(ArrayList toBurn)
+    {
+        if(toBurn == null){
+            return;
+        }
+        foreach(var building in toBurn){
+            buildingList.Add(building);
+        }
+    }
 }
 
 [Serializable]

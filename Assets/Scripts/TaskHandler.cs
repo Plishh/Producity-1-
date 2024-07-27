@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class TaskHandler : MonoBehaviour
 {
     private bool isDone;
+
+    private bool isExpired;
     private String taskStr;
 
     public GameObject taskTextPlace;
@@ -28,9 +30,15 @@ public class TaskHandler : MonoBehaviour
 
     public EventsManager eventsManager;
 
+    public StructureManager structureManager;
+
+    public PlacementManager placementManager;
+    private ArrayList toBurn;
+
     
 
     private void Start() {
+        isExpired = false;
         taskText = GetComponentInChildren<TMP_Text>();
         completed.onClick.AddListener(setIsDone);
         GameObject goldManagerObject = GameObject.FindGameObjectWithTag("GoldManager");
@@ -44,6 +52,10 @@ public class TaskHandler : MonoBehaviour
         }
         GameObject eventsManagerObject = GameObject.FindGameObjectWithTag("EventsManager"); 
         eventsManager = eventsManagerObject.GetComponent<EventsManager>();
+        GameObject structureManagerObject = GameObject.FindGameObjectWithTag("StructureManager");
+        structureManager = structureManagerObject.GetComponent<StructureManager>();
+        GameObject placementManagerObject = GameObject.FindGameObjectWithTag("PlacementManager");
+        placementManager = placementManagerObject.GetComponent<PlacementManager>();
     }
 
      void OnTimeInputEnd(string input)
@@ -58,7 +70,7 @@ public class TaskHandler : MonoBehaviour
             {
                 // Valid time
                 feedbackText.text = "";
-                //$"Valid Time: {hours:D2}:{minutes:D2}";
+                
                 DateTime now = DateTime.Now;
                 alarmTime = new DateTime(now.Year, now.Month, now.Day, hours, minutes, 0);
 
@@ -88,7 +100,7 @@ public class TaskHandler : MonoBehaviour
  IEnumerator AlarmCoroutine(DateTime targetTime)
     {
         Debug.Log("Current Time: " + DateTime.Now);
-Debug.Log("Target Time: " + targetTime);
+        Debug.Log("Target Time: " + targetTime);
         
         while (DateTime.Now < targetTime.AddHours(-2))
         {
@@ -104,18 +116,27 @@ Debug.Log("Target Time: " + targetTime);
             yield return null; // Wait until the next frame
 
         }
-        Debug.Log("less than an hour");
 
+        Debug.Log("less than an hour");
+        toBurn = eventsManager.makeList();
+        eventsManager.SetOnFire(toBurn);
+
+        //now is earlier than target time and is done will stuck in 
         while (DateTime.Now < targetTime )
         {
             
             yield return null;
         }
+
+        if(isDone == false){
+        isExpired = true;
         Debug.Log("times up");
-            feedbackText.text = "time is up";
-            eventsManager.SetFire();
+        feedbackText.text = "time is up";
+        eventsManager.DestroyBuildings(toBurn);
+        }
         
-        //
+        
+        
     }
 
     public void setIsDone(){
@@ -125,6 +146,17 @@ Debug.Log("Target Time: " + targetTime);
         tick.SetActive(true);
         taskManager.CheckTask(this);
         feedbackText.text = "";
+
+        if(toBurn != null){
+        //add back buildings that were supposed to be burned if the task is not yet expired
+        if(isExpired == false){
+        structureManager.addToBuildingList(toBurn);
+        } 
+
+        foreach(Vector3Int pos in toBurn){
+            placementManager.DestroyFire(pos);
+        }
+        }
     }
 
     public void setTaskInfo(string task)
