@@ -45,7 +45,7 @@ public class TaskHandler : MonoBehaviour
         goldManager = goldManagerObject.GetComponent<GoldManager>();
         GameObject taskManagerObject = GameObject.FindGameObjectWithTag("TaskManager");
         taskManager = taskManagerObject.GetComponent<TaskManager>();
-        deleteButton.onClick.AddListener(() => Destroy(gameObject));
+        deleteButton.onClick.AddListener(OnDeletButtonClick);
         if (deadline != null)
         {
             deadline.onEndEdit.AddListener(OnTimeInputEnd);
@@ -58,7 +58,26 @@ public class TaskHandler : MonoBehaviour
         placementManager = placementManagerObject.GetComponent<PlacementManager>();
     }
 
-     void OnTimeInputEnd(string input)
+    private void OnDeletButtonClick()
+    {
+        //destroy fire
+        if(toBurn != null){
+        //add back buildings that were supposed to be burned if the task is not yet expired
+        if(isExpired == false){
+            structureManager.addToBuildingList(toBurn);
+        
+
+                foreach(Vector3Int pos in toBurn){
+            placementManager.DestroyFire(pos);
+                }
+            }
+        }
+
+        // Destroy the game object
+        Destroy(gameObject);
+    }
+
+    void OnTimeInputEnd(string input)
     {
         // Check if input is a valid time format (HHMM)
         if (input.Length == 4 && int.TryParse(input, out int timeOfDay))
